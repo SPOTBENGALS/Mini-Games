@@ -1,0 +1,388 @@
+$card-grid-width: 600px;
+
+.cardMatchingContainer {
+  @include horizonBox;
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  font-family: $TheJamsil;
+  background-color: #1b1523;
+}
+
+.cardMatching {
+  @include verticalBox;
+  justify-content: center;
+
+  width: $card-grid-width + 60px;
+  padding: 30px;
+
+  color: white;
+
+  header {
+    @include verticalBox;
+
+    width: 100%;
+
+    h1 {
+      font-size: 40px;
+      padding: 20px;
+    }
+
+    .nav {
+      @include horizonBox;
+      justify-content: space-between;
+
+      width: 100%;
+
+      .levelSelect {
+        @include horizonBox;
+
+        div {
+          @include horizonBox;
+
+          padding: 8px 12px;
+          margin-right: 10px;
+          border: 1px solid white;
+          border-radius: 50%;
+          cursor: pointer;
+
+          &:hover {
+            background-color: tomato;
+          }
+
+          &:first-child {
+            padding-left: 0;
+
+            border: 0;
+            margin-right: 10px;
+            cursor: default;
+
+            &:hover {
+              background-color: inherit;
+            }
+          }
+
+          &.on {
+            background-color: slateblue;
+          }
+        }
+      }
+
+      .newGame {
+        padding: 10px 20px;
+
+        color: white;
+        font-size: 18px;
+        background-color: inherit;
+        border-radius: 8px;
+        border: 3px solid white;
+
+        &:hover {
+          background-color: tomato;
+        }
+      }
+    }
+  }
+
+  .cardGrid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    width: $card-grid-width;
+    margin-top: 30px;
+
+    .card {
+      position: relative;
+      width: $card-grid-width / 3 - 60px;
+      height: $card-grid-width / 3 - 60px;
+      margin-bottom: 15px;
+      cursor: pointer;
+
+      .cardFront,
+      .cardBack {
+        @include horizonBox;
+        width: 100%;
+        height: $card-grid-width / 3 - 60px;
+        background-color: rgba(255, 255, 255, 0.5);
+        border: 1px solid #98869d;
+        border-radius: 4px;
+        font-size: 72px;
+        transition: all ease-in 0.2s;
+      }
+
+      .cardFront {
+        position: absolute;
+        transform: rotateY(90deg);
+      }
+      .flipped .cardFront {
+        transform: rotateY(0deg);
+        transition-delay: 0.2s;
+      }
+
+      .cardBack {
+        transition-delay: 0.2s;
+      }
+      .flipped .cardBack {
+        transform: rotateY(90deg);
+        transition-delay: 0s;
+      }
+    }
+
+    .cardLevel2 {
+      width: $card-grid-width / 4 - 10px;
+      height: $card-grid-width / 4 - 10px;
+
+      .cardFront,
+      .cardBack {
+        height: $card-grid-width / 4 - 10px;
+      }
+    }
+
+    .cardLevel3 {
+      width: $card-grid-width / 5 - 10px;
+      height: $card-grid-width / 5 - 10px;
+      margin-bottom: 12px;
+
+      .cardFront,
+      .cardBack {
+        height: $card-grid-width / 5 - 10px;
+      }
+    }
+
+    .cardLevel4 {
+      width: $card-grid-width / 6 - 10px;
+      height: $card-grid-width / 6 - 10px;
+      margin-bottom: 10px;
+
+      .cardFront,
+      .cardBack {
+        height: $card-grid-width / 6 - 10px;
+        font-size: 48px;
+      }
+    }
+    .cardLevel5 {
+      width: $card-grid-width / 7 - 10px;
+      height: $card-grid-width / 7 - 10px;
+      margin-bottom: 10px;
+
+      .cardFront,
+      .cardBack {
+        height: $card-grid-width / 7 - 10px;
+        font-size: 36px;
+      }
+    }
+  }
+}
+
+.modal {
+  @include modal(#1b1523);
+}
+
+@media (max-width: 1280px) {
+  $card-grid-width-laptop: 900px;
+
+  .cardMatching {
+    width: $card-grid-width-laptop + 40px;
+    padding: 20px;
+
+    header {
+      h1 {
+        font-size: 32px;
+        padding: 20px;
+      }
+
+      .nav {
+        .newGame {
+          padding: 5px 20px;
+          font-size: 16px;
+          border: 2px solid white;
+        }
+      }
+    }
+
+    .cardGrid {
+      width: $card-grid-width-laptop;
+      margin-top: 30px;
+      margin-bottom: 20px;
+
+      .card {
+        width: $card-grid-width-laptop / 6 - 15px;
+        height: $card-grid-width-laptop / 6 - 15px;
+
+        .cardFront,
+        .cardBack {
+          height: $card-grid-width-laptop / 6 - 15px;
+          font-size: 72px;
+        }
+      }
+
+      .cardLevel2 {
+        width: $card-grid-width-laptop / 8 - 10px;
+        height: $card-grid-width-laptop / 8 - 10px;
+        margin-bottom: 10px;
+
+        .cardFront,
+        .cardBack {
+          height: $card-grid-width-laptop / 8 - 10px;
+          font-size: 56px;
+        }
+      }
+
+      .cardLevel3 {
+        width: $card-grid-width-laptop / 10 - 7px;
+        height: $card-grid-width-laptop / 10 - 7px;
+        margin-bottom: 12px;
+
+        .cardFront,
+        .cardBack {
+          height: $card-grid-width-laptop / 10 - 7px;
+          font-size: 48px;
+        }
+      }
+
+      .cardLevel4 {
+        width: $card-grid-width-laptop / 12 - 5px;
+        height: $card-grid-width-laptop / 12 - 5px;
+        margin-bottom: 10px;
+
+        .cardFront,
+        .cardBack {
+          height: $card-grid-width-laptop / 12 - 5px;
+          font-size: 36px;
+        }
+      }
+      .cardLevel5 {
+        width: $card-grid-width-laptop / 14 - 3px;
+        height: $card-grid-width-laptop / 14 - 3px;
+        margin-bottom: 10px;
+
+        .cardFront,
+        .cardBack {
+          height: $card-grid-width-laptop / 14 - 3px;
+          font-size: 36px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .cardMatching {
+    width: 100vw;
+    margin-top: 80px;
+    padding: 30px;
+
+    header {
+      h1 {
+        font-size: 36px;
+        padding: 15px;
+      }
+
+      .nav {
+        @include horizonBox;
+        justify-content: space-between;
+
+        width: 100%;
+
+        .levelSelect {
+          div {
+            padding: 8px 12px;
+            margin-right: 10px;
+
+            &:hover {
+              background-color: inherit;
+            }
+
+            &:first-child {
+              margin-right: 2px;
+
+              &:hover {
+                background-color: inherit;
+              }
+            }
+
+            &.on {
+              background-color: slateblue;
+            }
+          }
+        }
+
+        .newGame {
+          padding: 5px 10px;
+
+          font-size: 14px;
+          border-radius: 8px;
+          border: 1px solid white;
+
+          &:hover {
+            background-color: inherit;
+          }
+        }
+      }
+    }
+
+    .cardGrid {
+      width: 100%;
+      margin-top: 30px;
+      margin-bottom: 5px;
+
+      .card {
+        width: calc(100% / 3 - 10px);
+        height: calc(100% / 3 - 10px);
+        margin-bottom: 10px;
+
+        .cardFront,
+        .cardBack {
+          width: 100%;
+          height: 100%;
+          font-size: 68px;
+        }
+      }
+
+      .cardLevel2 {
+        width: calc(100% / 4 - 8px);
+        height: calc(100% / 4 - 8px);
+        margin-bottom: 8px;
+
+        .cardFront,
+        .cardBack {
+          font-size: 56px;
+        }
+      }
+
+      .cardLevel3 {
+        width: calc(100% / 4 - 10px);
+        height: calc(100% / 4 - 10px);
+        margin-bottom: 12px;
+
+        .cardFront,
+        .cardBack {
+          font-size: 48px;
+        }
+      }
+
+      .cardLevel4 {
+        width: calc(100% / 4 - 5px);
+        height: calc(100% / 4 - 5px);
+        margin-bottom: 5px;
+
+        .cardFront,
+        .cardBack {
+          font-size: 48px;
+        }
+      }
+      .cardLevel5 {
+        width: calc(100% / 4 - 10px);
+        height: calc(100% / 4 - 10px);
+        margin-bottom: 10px;
+
+        .cardFront,
+        .cardBack {
+          font-size: 48px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,484 @@
+$border-color: #56370b;
+$selected-background-color: #ffdb8e;
+$userfilled-number-color: #d46f27;
+$hint-color: #eddfcc;
+$number-hover-color: #e4ad61;
+
+.sudokuContainer {
+  @include horizonBox;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+
+  font-family: $TheJamsil;
+  background: url("../public/sudoku.jpg") no-repeat center center;
+  background-size: cover;
+
+  .sudokuPaper {
+    @include verticalBox;
+    justify-content: center;
+    position: relative;
+    width: 900px;
+    padding: 30px;
+
+    background-color: #fffbf5;
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 8px;
+      left: 2px;
+
+      width: 910px;
+      height: 670px;
+
+      background-color: #dcd0bf;
+      box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.5);
+      transform: skewY(1deg);
+    }
+
+    .header {
+      @include horizonBox;
+      justify-content: space-between;
+      width: 100%;
+      border-bottom: 1px solid $border-color;
+
+      h1 {
+        line-height: 50px;
+        color: $border-color;
+        font-size: 40px;
+        font-family: $PyeongChangPeace;
+        cursor: default;
+
+        span {
+          color: $border-color;
+          font-family: $TheJamsil;
+          letter-spacing: -2px;
+          opacity: 0.3;
+        }
+      }
+
+      h2 {
+        color: $border-color;
+        transition: 0.3s;
+        cursor: pointer;
+
+        &:hover {
+          color: $userfilled-number-color;
+        }
+      }
+    }
+
+    .sudokuSection {
+      @include horizonBox;
+      flex-wrap: wrap;
+      padding: 20px 0;
+
+      width: 800px;
+
+      .sudoku {
+        width: 70%;
+
+        .sudokuBoard {
+          background-color: white;
+          border: 2px solid $border-color;
+          border-collapse: collapse;
+
+          font-size: 24px;
+
+          .boardRow:nth-child(3n) {
+            border-bottom: 2px solid $border-color;
+          }
+
+          .cell {
+            padding: 15px 22px;
+
+            border: 1px solid $border-color;
+            color: white;
+
+            cursor: pointer;
+          }
+
+          .cell:nth-child(3n) {
+            border-right: 2px solid $border-color;
+          }
+
+          .cell_filled {
+            color: $border-color;
+
+            &.cell_highlightSelected {
+              background-color: $selected-background-color;
+              color: $border-color;
+            }
+          }
+
+          .cell_hint {
+            background-color: $hint-color;
+          }
+
+          .cell_userfilled {
+            color: $userfilled-number-color;
+
+            &.cell_highlightSelected {
+              background-color: $selected-background-color;
+              color: $userfilled-number-color;
+            }
+          }
+
+          .cell_highlightSelected {
+            background-color: $selected-background-color;
+            color: $selected-background-color;
+          }
+        }
+      }
+
+      .status {
+        @include verticalBox;
+        width: 30%;
+        height: 470px;
+
+        .difficulty {
+          @include horizonBox;
+          justify-content: space-between;
+
+          .difficultylText {
+            font-size: 21px;
+            color: $border-color;
+          }
+
+          .difficultylSelect {
+            width: 135px;
+            height: 40px;
+            line-height: 40px;
+
+            text-indent: 5px;
+            background-color: $border-color;
+            border: 0;
+            color: white;
+            font-family: $TheJamsil;
+            cursor: pointer;
+
+            option {
+              line-height: 24px;
+              background-color: $border-color;
+            }
+
+            &:focus-visible {
+              outline: 0;
+            }
+          }
+        }
+
+        .timer {
+          @include horizonBox;
+          width: 100%;
+          padding: 20px;
+          margin-top: 30px;
+          font-size: 28px;
+
+          color: $border-color;
+          border: 1px solid $hint-color;
+          background-color: #fff;
+          opacity: 0.7;
+          cursor: default;
+        }
+
+        .actions {
+          @include horizonBox;
+          justify-content: space-between;
+          width: 100%;
+          margin-top: 43px;
+
+          .erase {
+            @include horizonBox;
+
+            width: calc(33.3% - 2px);
+            min-width: 75px;
+            min-height: 75px;
+            margin: 1px;
+
+            background-color: $hint-color;
+            color: white;
+            font-size: 24px;
+            transition: 0.3s;
+
+            cursor: pointer;
+
+            &:hover {
+              background-color: $number-hover-color;
+            }
+          }
+
+          .fastMode {
+            @include horizonBox;
+            width: 60%;
+            margin-bottom: 10px;
+
+            .fastModeSwitch {
+              cursor: pointer;
+
+              input {
+                display: none;
+              }
+
+              .fastModeSlider {
+                position: relative;
+                display: flex;
+                width: 50px;
+                height: 30px;
+                margin-right: 15px;
+
+                background-color: $hint-color;
+                border-radius: 25px;
+                transition: 0.3s;
+
+                &::after {
+                  content: "";
+                  position: absolute;
+                  width: 23px;
+                  height: 23px;
+                  top: 3px;
+                  left: 4px;
+
+                  background-color: white;
+                  border-radius: 13px;
+                  transform: translateX(19px);
+                  transition: 0.3s;
+                }
+              }
+
+              .fastModeSlider.ModeOn::after {
+                transform: translateX(0px);
+              }
+
+              .fastModeSlider.ModeOn {
+                background-color: $border-color;
+              }
+            }
+
+            .fastModeText {
+              color: $border-color;
+            }
+          }
+        }
+
+        .numbers {
+          @include horizonBox;
+          flex-wrap: wrap;
+
+          .number {
+            @include horizonBox;
+
+            width: calc(33.3% - 2px);
+            min-width: 75px;
+            min-height: 75px;
+            margin: 1px;
+
+            background-color: $hint-color;
+            color: white;
+            font-size: 24px;
+            transition: 0.3s;
+
+            cursor: pointer;
+
+            &:hover {
+              background-color: $number-hover-color;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .modal {
+    @include modal($border-color);
+  }
+}
+
+@media (max-width: 1280px) {
+  .sudokuContainer {
+    .sudokuPaper {
+      width: 710px;
+      padding: 10px 20px;
+
+      &::before {
+        top: 13px;
+        left: 2px;
+
+        width: 720px;
+        height: 510px;
+      }
+
+      .header {
+        h1 {
+          line-height: 50px;
+          font-size: 26px;
+        }
+
+        h2 {
+          font-size: 18px;
+        }
+      }
+
+      .sudokuSection {
+        padding: 10px 0;
+
+        width: 100%;
+
+        .sudoku {
+          width: 70%;
+
+          .sudokuBoard {
+            font-size: 18px;
+
+            .cell {
+              padding: 13px 18px;
+            }
+          }
+        }
+
+        .status {
+          width: 30%;
+          height: 400px;
+
+          .difficulty {
+            .difficultylText {
+              font-size: 18px;
+            }
+
+            .difficultylSelect {
+              width: 110px;
+              height: 35px;
+              line-height: 35px;
+            }
+          }
+
+          .timer {
+            width: 100%;
+            padding: 20px;
+            margin-top: 20px;
+            font-size: 21px;
+          }
+
+          .actions {
+            margin-top: 23px;
+
+            .erase {
+              min-width: 65px;
+              min-height: 65px;
+
+              font-size: 21px;
+            }
+          }
+
+          .numbers {
+            .number {
+              min-width: 65px;
+              min-height: 65px;
+
+              font-size: 21px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .sudokuContainer {
+    .sudokuPaper {
+      width: calc(100% - 20px);
+      margin-top: 60px;
+      padding: 10px;
+
+      &::before {
+        display: none;
+      }
+
+      .header {
+        width: 95%;
+
+        h1 {
+          line-height: 50px;
+          font-size: 24px;
+        }
+      }
+
+      .sudokuSection {
+        @include verticalBox;
+        padding: 10px 0;
+
+        width: calc(100% - 20px);
+
+        .sudoku {
+          @include horizonBox;
+          width: 100%;
+
+          .sudokuBoard {
+            font-size: 18px;
+
+            .cell {
+              padding: 8px 13px;
+            }
+          }
+        }
+
+        .status {
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          width: 100%;
+          margin-top: 10px;
+          height: fit-content;
+
+          .difficulty {
+            @include verticalBox;
+
+            .difficultylText {
+              margin-bottom: 5px;
+              font-size: 16px;
+            }
+          }
+
+          .timer {
+            width: 160px;
+            margin-top: 0px;
+            font-size: 24px;
+          }
+
+          .actions {
+            margin-top: 10px;
+
+            .erase {
+              width: calc(20% - 2px);
+              min-width: 55px;
+              min-height: 55px;
+              margin: 1px;
+              font-size: 18px;
+            }
+          }
+
+          .numbers {
+            @include horizonBox;
+            flex-wrap: wrap;
+
+            .number {
+              @include horizonBox;
+
+              width: calc(20% - 2px);
+              min-width: 55px;
+              min-height: 55px;
+              margin: 1px;
+
+              font-size: 24px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

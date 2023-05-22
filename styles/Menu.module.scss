@@ -1,0 +1,154 @@
+.menuContainer {
+  @include verticalBox;
+
+  position: relative;
+  z-index: 999;
+
+  width: 200px;
+  background-color: $blue;
+  padding: 30px;
+
+  color: white;
+  font-family: $MomsBlanketFont;
+
+  .logo {
+    padding-left: 5px;
+    font-size: 36px;
+  }
+
+  .cardContainer {
+    @include verticalBox;
+    justify-content: space-between;
+
+    height: 100%;
+    margin-top: 30px;
+
+    .card {
+      position: relative;
+
+      width: 130px;
+      height: 130px;
+      border-radius: $border-radius;
+      overflow: hidden;
+
+      transition: all 0.3s;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      &:hover .cardTitle {
+        @include shake;
+      }
+
+      &::after {
+        content: "";
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 130px;
+        height: 130px;
+        background: linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8));
+      }
+
+      & img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .cardTitle {
+        position: absolute;
+        z-index: 10;
+        left: 50%;
+        bottom: 10px;
+        width: 130px;
+        text-align: center;
+        transform: translateX(-50%) rotate(0deg);
+
+        font-size: 24px;
+        font-family: $TheJamsil;
+        letter-spacing: 1px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1280px) {
+  .menuContainer {
+    width: 150px;
+    .logo {
+      font-size: 21px;
+    }
+    .cardContainer {
+      margin-top: 15px;
+
+      .card {
+        width: 80px;
+        height: 80px;
+        border-radius: 8px;
+
+        &::after {
+          width: 80px;
+          height: 80px;
+        }
+
+        & img {
+          width: 100%;
+          height: 100%;
+        }
+
+        .cardTitle {
+          width: 80px;
+          font-size: 16px;
+          letter-spacing: 0px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .menuContainer {
+    position: absolute;
+
+    width: 100%;
+    padding: 10px;
+
+    .logo {
+      padding: 0;
+      font-size: 24px;
+    }
+
+    .cardContainer {
+      flex-direction: row;
+      justify-content: space-around;
+
+      width: 100%;
+      height: 80px;
+      margin-top: 10px;
+
+      .card {
+        width: 65px;
+        height: 65px;
+        border-radius: 8px;
+
+        &::after {
+          content: "";
+          width: 65px;
+          height: 65px;
+        }
+
+        .cardTitle {
+          bottom: 5px;
+          width: 65px;
+
+          font-size: 15px;
+          letter-spacing: -1px;
+        }
+      }
+    }
+  }
+}

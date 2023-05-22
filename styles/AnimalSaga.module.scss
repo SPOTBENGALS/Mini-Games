@@ -1,0 +1,177 @@
+$stage-border-color: #2a1d1d;
+$title-color: #a3e007;
+
+.AnimalSagaContainer {
+  @include horizonBox;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+
+  font-family: $TheJamsil;
+  background: url("../public/animalsaga.jpg") no-repeat center center;
+  background-size: cover;
+
+  .AnimalSaga {
+    @include verticalBox;
+    justify-content: center;
+    position: relative;
+    width: 650px;
+    padding: 30px;
+
+    background-color: #212d1c;
+    border: 20px solid $stage-border-color;
+
+    .header {
+      @include horizonBox;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 30px;
+
+      h1 {
+        margin-right: 30px;
+
+        font-family: $PyeongChangPeace;
+        text-shadow: -2px 0 #111, 0 2px #111, 2px 0 #111, 0 -2px #111;
+        color: $title-color;
+      }
+
+      .scoreBoard {
+        font-size: 36px;
+        color: white;
+        letter-spacing: 1px;
+      }
+    }
+
+    .stage {
+      display: flex;
+      flex-wrap: wrap;
+      width: 560px;
+      height: 560px;
+
+      .cell {
+        width: 70px;
+        height: 70px;
+
+        font-size: 50px;
+        text-shadow: -3px 0 #111, 0 3px #111, 3px 0 #111, 0 -3px #111;
+        cursor: pointer;
+      }
+    }
+
+    .status {
+      width: 200px;
+    }
+  }
+
+  .timer {
+    @include verticalBox;
+    justify-content: center;
+
+    position: absolute;
+    top: 50px;
+    right: -150px;
+    width: 130px;
+    height: 80px;
+
+    background-color: beige;
+    border: 10px solid $stage-border-color;
+    border-left: 0;
+    border-radius: 0 10px 10px 0;
+
+    font-size: 21px;
+
+    h5 {
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+  }
+
+  .modal {
+    @include modal($title-color);
+  }
+}
+
+@media (max-width: 1280px) {
+  .AnimalSagaContainer {
+    .AnimalSaga {
+      width: 500px;
+      padding: 10px 20px;
+
+      .header {
+        margin-bottom: 10px;
+
+        h1 {
+          font-size: 26px;
+        }
+
+        .scoreBoard {
+          font-size: 24px;
+        }
+      }
+
+      .stage {
+        width: 440px;
+        height: 440px;
+
+        .cell {
+          width: 55px;
+          height: 55px;
+
+          font-size: 40px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .AnimalSagaContainer {
+    .AnimalSaga {
+      width: calc(100% - 10px);
+      padding: 15px;
+
+      border: 3px solid $stage-border-color;
+
+      .header {
+        margin-bottom: 20px;
+
+        h1 {
+          margin-right: 20px;
+          font-size: 24px;
+        }
+
+        .scoreBoard {
+          font-size: 24px;
+        }
+      }
+
+      .stage {
+        width: 100%;
+
+        .cell {
+          width: calc(100% / 8);
+
+          font-size: 32px;
+        }
+      }
+    }
+
+    .timer {
+      top: unset;
+      bottom: -100px;
+      right: unset;
+      width: 130px;
+      height: 75px;
+
+      border-left: 10px solid $stage-border-color;
+      border-radius: 10px;
+
+      font-size: 18px;
+
+      h5 {
+        font-size: 13px;
+      }
+    }
+  }
+}

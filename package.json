@@ -12,9 +12,17 @@
     "@types/node": "18.15.11",
     "@types/react": "18.0.35",
     "@types/react-dom": "18.0.11",
-    "next": "13.3.0",
+    "classnames": "^2.3.2",
+    "next": "13.2.4",
+    "next-images": "^1.8.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "typescript": "5.0.4"
+    "sass": "^1.62.0",
+    "scss": "^0.2.4",
+    "typescript": "5.0.4",
+    "zustand": "^4.3.7"
+  },
+  "devDependencies": {
+    "moment": "^2.29.4"
   }
 }

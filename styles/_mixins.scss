@@ -1,0 +1,210 @@
+@mixin horizonBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin verticalBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin modal($border-color) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  width: 550px;
+  height: 200px;
+  padding: 0 50px;
+
+  line-height: 30px;
+  background-color: white;
+  border: 1px solid $border-color;
+  border-top: 10px solid $border-color;
+
+  h2 {
+    font-size: 21px;
+
+    & span {
+      display: contents;
+      color: $border-color;
+    }
+  }
+
+  & button {
+    width: 60px;
+    height: 40px;
+
+    background-color: $border-color;
+    color: white;
+    border: 0;
+    border-radius: 3px;
+    font-family: $TheJamsil;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    width: 90%;
+    padding: 20px;
+
+    h2 {
+      font-size: 18px;
+    }
+
+    & button {
+      width: 90%;
+    }
+  }
+}
+
+@mixin shake {
+  @keyframes shake {
+    0% {
+      transform: translateX(-50%) rotate(3deg);
+    }
+    33% {
+      transform: translateX(-50%) rotate(0deg);
+    }
+    66% {
+      transform: translateX(-50%) rotate(-3deg);
+    }
+    100% {
+      transform: translateX(-50%) rotate(0deg);
+    }
+  }
+
+  animation: shake;
+  animation-duration: 200ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@mixin circle {
+  @keyframes circle {
+    0% {
+      transform: translate(0%, 0%);
+    }
+    12% {
+      transform: translate(0%, -50%);
+    }
+    24% {
+      transform: translate(-50%, -40%);
+    }
+    36% {
+      transform: translate(-50%, -90%);
+    }
+    48% {
+      transform: translate(-120%, -50%);
+    }
+    60% {
+      transform: translate(-50%, -90%);
+    }
+    72% {
+      transform: translate(-50%, -40%);
+    }
+    84% {
+      transform: translate(0%, -50%);
+    }
+    100% {
+      transform: translate(0%, 0%);
+    }
+  }
+
+  animation: circle;
+  animation-duration: 5000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@mixin rotate {
+  @keyframes rotate {
+    0% {
+      transform: translate(0%, 0%) rotate(0deg);
+    }
+    25% {
+      transform: translate(10%, -5%) rotate(90deg);
+    }
+    50% {
+      transform: translate(-100%, 20%) rotate(270deg);
+    }
+    50% {
+      transform: translate(-150%, 35%) rotate(270deg);
+    }
+    60% {
+      transform: translate(-100%, 35%) rotate(270deg);
+    }
+    70% {
+      transform: translate(-150%, 35%) rotate(270deg);
+    }
+    80% {
+      transform: translate(-30%, 20%) rotate(300deg);
+    }
+    95% {
+      transform: translate(-10%, 10%) rotate(320deg);
+    }
+    100% {
+      transform: translate(0%, 0%) rotate(360deg);
+    }
+  }
+
+  animation: rotate;
+  animation-duration: 4000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@mixin square {
+  @keyframes square {
+    0% {
+      transform: translateX(50%) rotate(45deg);
+    }
+    20% {
+      transform: translateX(50%) rotate(405deg);
+    }
+    45% {
+      transform: translateX(50%) rotate(45deg);
+    }
+    55% {
+      transform: translateX(50%) rotate(45deg);
+    }
+    60% {
+      transform: translateX(50%) rotate(45deg);
+      opacity: 1;
+    }
+    70% {
+      transform: translateX(50%) rotate(45deg);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(50%) rotate(45deg);
+      opacity: 1;
+    }
+  }
+
+  animation: square;
+  animation-duration: 4000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@mixin bounce {
+  @keyframes bounce {
+    0% {
+      transform: translateX(-55px) scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-55px) scale(3);
+      opacity: 0;
+    }
+  }
+
+  animation: bounce;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}

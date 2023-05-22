@@ -1,0 +1,35 @@
+$blue: #0064e6;
+$red: #fe1934;
+$navy: #1f16a1;
+$green: #1a4e22;
+$light-green: #ecffd1;
+
+$background: #ffd662;
+$circle: #fe1934;
+$border-radius: 16px;
+
+@font-face {
+  font-family: "RixMomsBlanketR";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/RixMomsBlanketR.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PyeongChangPeace-Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/PyeongChangPeace-Bold.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TheJamsil5Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+$MomsBlanketFont: "RixMomsBlanketR";
+$PyeongChangPeace: "PyeongChangPeace-Bold";
+$TheJamsil: "TheJamsil5Bold";
