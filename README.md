@@ -11,6 +11,7 @@
 - React
 - NextJS
 - varcel
+- Typescript
 - scss-module
 
 ### 주요 기능
