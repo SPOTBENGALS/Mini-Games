@@ -203,8 +203,8 @@ $border-color: $red;
 @media (max-width: 767px) {
   .tetrisContainer {
     .tetris {
-      margin-top: 80px;
-      padding: 15px 15px 80px;
+      margin-top: 85px;
+      padding: 10px 15px 65px;
 
       h1 {
         padding-bottom: 10px;
@@ -215,33 +215,33 @@ $border-color: $red;
         margin-bottom: 10px;
 
         h4 {
-          padding: 4px 10px;
-          line-height: 16px;
+          padding: 3px 10px;
+          line-height: 14px;
 
           border-radius: 8px;
-          font-size: 13px;
+          font-size: 10px;
         }
 
         .startButton {
           min-height: 30px;
-          padding: 12px 10px;
+          padding: 10px 8px;
 
-          font-size: 14px;
+          font-size: 13px;
         }
 
         .display {
           min-height: 30px;
-          padding: 10px;
+          padding: 8px;
 
-          font-size: 16px;
+          font-size: 12px;
         }
       }
     }
   }
 
   .stage {
-    grid-template-columns: repeat(12, 24px);
-    grid-template-rows: repeat(20, 24px);
+    grid-template-columns: repeat(12, 18px);
+    grid-template-rows: repeat(20, 18px);
   }
 
   .mobileButtons {
@@ -249,21 +249,20 @@ $border-color: $red;
     justify-content: space-between;
     position: absolute;
     bottom: 15px;
-    margin-top: 20px;
-    width: 260px;
+    width: calc(100% - 40px);
 
     .mButton {
       @include horizonBox;
-      padding: 16px;
+      padding: 10px 11px;
 
       background-color: #18a4f5;
       border-radius: 50%;
       color: white;
-      font-size: 18px;
+      font-size: 16px;
 
       &.fontAdjust {
-        padding: 8px;
-        font-size: 28px;
+        padding: 6px;
+        font-size: 20px;
       }
     }
   }

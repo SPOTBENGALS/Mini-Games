@@ -272,12 +272,12 @@ $card-grid-width: 600px;
   .cardMatching {
     width: 100vw;
     margin-top: 80px;
-    padding: 30px;
+    padding: 45px;
 
     header {
       h1 {
-        font-size: 36px;
-        padding: 15px;
+        font-size: 21px;
+        padding: 5px;
       }
 
       .nav {
@@ -288,14 +288,16 @@ $card-grid-width: 600px;
 
         .levelSelect {
           div {
-            padding: 8px 12px;
-            margin-right: 10px;
+            padding: 6px 10px;
+            margin-right: 8px;
+            font-size: 14px;
 
             &:hover {
               background-color: inherit;
             }
 
             &:first-child {
+              font-size: 14px;
               margin-right: 2px;
 
               &:hover {
@@ -310,9 +312,9 @@ $card-grid-width: 600px;
         }
 
         .newGame {
-          padding: 5px 10px;
+          padding: 3px 8px;
 
-          font-size: 14px;
+          font-size: 12px;
           border-radius: 8px;
           border: 1px solid white;
 
@@ -325,7 +327,7 @@ $card-grid-width: 600px;
 
     .cardGrid {
       width: 100%;
-      margin-top: 30px;
+      margin-top: 15px;
       margin-bottom: 5px;
 
       .card {
@@ -364,23 +366,24 @@ $card-grid-width: 600px;
       }
 
       .cardLevel4 {
-        width: calc(100% / 4 - 5px);
-        height: calc(100% / 4 - 5px);
-        margin-bottom: 5px;
+        width: calc(100% / 4 - 8px);
+        height: calc(100% / 4 - 8px);
+        margin-bottom: 7px;
 
         .cardFront,
         .cardBack {
-          font-size: 48px;
+          font-size: 42px;
         }
       }
+
       .cardLevel5 {
-        width: calc(100% / 4 - 10px);
-        height: calc(100% / 4 - 10px);
-        margin-bottom: 10px;
+        width: calc(100% / 4 - 8px);
+        height: calc(100% / 4 - 8px);
+        margin-bottom: 8px;
 
         .cardFront,
         .cardBack {
-          font-size: 48px;
+          font-size: 36px;
         }
       }
     }

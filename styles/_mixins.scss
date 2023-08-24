@@ -48,15 +48,19 @@
 
   @media (max-width: 767px) {
     flex-direction: column;
-    width: 90%;
-    padding: 20px;
+    width: 80%;
+    height: 160px;
+    padding: 15px;
 
     h2 {
-      font-size: 18px;
+      line-height: 24px;
+      font-size: 14px;
     }
 
     & button {
       width: 90%;
+      height: 35px;
+      font-size: 14px;
     }
   }
 }
